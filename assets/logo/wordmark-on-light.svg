@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 90" width="460" height="90" role="img" aria-label="davetim hazır">
+  <!-- For light/ivory backgrounds. Background left transparent. -->
+  <text x="0" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="52" font-weight="500" fill="#241f2b">davetim </text>
+  <text x="183" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="52" font-weight="600" fill="#b8945f">hazır</text>
+  <circle cx="438" cy="64" r="5" fill="#b8945f"/>
+</svg>

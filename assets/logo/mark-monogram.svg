@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="davetim hazır işareti — monogram">
+  <!-- Direction C — "Monogram": a lowercase "d" with its bowl open toward an "h" ascender,
+       the negative space forming a small flame/heart — warmth + invitation. currentColor. -->
+  <path d="M62 16 V62 A20 20 0 1 1 42 42" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="62" cy="78" r="6" fill="currentColor"/>
+</svg>

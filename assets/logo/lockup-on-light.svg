@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 90" width="520" height="90" role="img" aria-label="davetim hazır">
+  <!-- Primary lockup: Spark mark + wordmark, for light/ivory backgrounds. -->
+  <path d="M30 12 C31.5 23 37 28.5 48 30 C37 31.5 31.5 37 30 48 C28.5 37 23 31.5 12 30 C23 28.5 28.5 23 30 12 Z" fill="#b8945f" transform="translate(15,15) scale(0.7)"/>
+  <text x="62" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="52" font-weight="500" fill="#241f2b">davetim </text>
+  <text x="245" y="60" font-family="'Cormorant Garamond', Georgia, serif" font-size="52" font-weight="600" fill="#b8945f">hazır</text>
+  <circle cx="500" cy="64" r="5" fill="#b8945f"/>
+</svg>

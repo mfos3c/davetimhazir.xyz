@@ -1,0 +1,247 @@
+/* ============================================================
+   Dijital davetiye — ortak yapı + 3 tema (altin / yildiz / cicek)
+   Tek sayfalık, veri-odaklı davetiye. Cursor backend'de [slug] ile
+   bu yapıyı veriyle besleyecek (window.INVITE).
+   ============================================================ */
+
+:root {
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* device frame: davetiye mobil odaklıdır, geniş ekranda ortalanır */
+.inv {
+  max-width: 480px; margin-inline: auto; min-height: 100vh; position: relative;
+  color: var(--fg); background: var(--bg);
+}
+@media (min-width: 520px) {
+  body { background: #0a0a0b; }
+  .inv { box-shadow: 0 0 80px rgba(0,0,0,.6); }
+}
+
+/* ---------- COVER (açılış) ---------- */
+.cover {
+  min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 60px 30px; position: relative; transition: opacity .8s ease, transform .8s ease;
+}
+.cover .eyebrow { font-size: 12px; letter-spacing: .42em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+.cover .names { font-family: var(--serif); font-size: clamp(54px, 18vw, 84px); line-height: .98; font-weight: 600; }
+.cover .names .amp { display: block; font-style: italic; font-size: .42em; color: var(--accent); margin: 6px 0; font-weight: 500; }
+.cover .rule { width: 60px; height: 1px; background: var(--accent); margin: 26px auto; opacity: .6; }
+.cover .date { font-size: 13px; letter-spacing: .32em; text-transform: uppercase; opacity: .8; }
+.cover .open-btn {
+  margin-top: 40px; border: 1px solid var(--accent); color: var(--accent);
+  font-size: 12px; letter-spacing: .26em; text-transform: uppercase; padding: 15px 34px;
+  border-radius: 100px; cursor: pointer; background: transparent; transition: background .3s, color .3s;
+}
+.cover .open-btn:hover { background: var(--accent); color: var(--bg); }
+.cover .music-hint { margin-top: 18px; font-size: 11px; letter-spacing: .12em; opacity: .55; display: flex; align-items: center; gap: 6px; justify-content: center; }
+.cover.hidden { opacity: 0; transform: scale(1.04); pointer-events: none; position: fixed; inset: 0; z-index: -1; }
+
+/* ---------- generic section ---------- */
+.sec { padding: 70px 30px; position: relative; }
+.sec .label { font-family: var(--serif); font-size: clamp(30px, 8vw, 40px); font-weight: 600; text-align: center; margin-bottom: 8px; }
+.sec .sub { text-align: center; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: 36px; }
+.reveal-i { opacity: 0; transform: translateY(24px); transition: .8s ease; }
+.reveal-i.in { opacity: 1; transform: none; }
+
+/* couple cards */
+.couple { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.person { text-align: center; }
+.person .photo {
+  width: 100%; aspect-ratio: 3/4; border-radius: 120px 120px 16px 16px; object-fit: cover;
+  border: 1px solid var(--line); background: var(--card);
+  display: grid; place-items: center; font-family: var(--serif); font-size: 44px; color: var(--accent);
+}
+.person h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin-top: 14px; }
+.person p { font-size: 12.5px; opacity: .7; font-style: italic; }
+
+/* countdown */
+.countdown { display: flex; gap: 10px; justify-content: center; }
+.countdown .box {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px 0; width: 74px; text-align: center;
+}
+.countdown .box b { font-family: var(--serif); font-size: 34px; font-weight: 600; display: block; line-height: 1; color: var(--accent); }
+.countdown .box small { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; opacity: .65; }
+
+/* event (merasim) cards */
+.event {
+  background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+  padding: 32px 26px; text-align: center; margin-bottom: 18px;
+}
+.event .ico { font-size: 26px; margin-bottom: 10px; }
+.event h3 { font-family: var(--serif); font-size: 30px; font-weight: 600; letter-spacing: .04em; }
+.event .when { font-family: var(--serif); font-size: 30px; color: var(--accent); margin: 8px 0 2px; }
+.event .day { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .7; }
+.event .place { margin-top: 14px; font-weight: 500; }
+.event .addr { font-size: 13.5px; opacity: .72; }
+.event .map-btn {
+  display: inline-flex; gap: 7px; align-items: center; margin-top: 16px; font-size: 11px;
+  letter-spacing: .2em; text-transform: uppercase; border: 1px solid var(--accent); color: var(--accent);
+  padding: 10px 20px; border-radius: 100px; transition: background .3s, color .3s;
+}
+.event .map-btn:hover { background: var(--accent); color: var(--bg); }
+
+/* map embed */
+.map-embed { width: 100%; height: 240px; border: 1px solid var(--line); border-radius: 18px; filter: grayscale(.3) contrast(1.05); }
+
+/* RSVP + guestbook forms */
+.card-form { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; }
+.card-form p.note { text-align: center; opacity: .72; font-size: 14px; margin-bottom: 20px; }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; margin-bottom: 6px; }
+.field input, .field select, .field textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--line); color: var(--fg);
+  border-radius: 10px; padding: 13px 14px; font-family: var(--sans); font-size: 15px; outline: none;
+  transition: border-color .2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--accent); }
+.field textarea { resize: vertical; min-height: 90px; }
+.radios { display: flex; gap: 10px; }
+.radios label { flex: 1; text-align: center; padding: 12px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; font-size: 13px; letter-spacing: .04em; text-transform: none; opacity: 1; }
+.radios input { display: none; }
+.radios input:checked + span { color: var(--accent); font-weight: 600; }
+.radios label:has(input:checked) { border-color: var(--accent); background: var(--card); }
+.submit-btn {
+  width: 100%; margin-top: 8px; background: var(--accent); color: var(--bg); border: 0; cursor: pointer;
+  font-family: var(--sans); font-size: 14px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 15px; border-radius: 100px; transition: transform .2s, filter .2s;
+}
+.submit-btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+.form-ok { text-align: center; padding: 20px; color: var(--accent); font-family: var(--serif); font-size: 22px; display: none; }
+
+/* guestbook entries */
+.guest-list { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
+.guest {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px;
+}
+.guest .g-name { font-family: var(--serif); font-size: 19px; color: var(--accent); }
+.guest .g-msg { font-size: 14.5px; opacity: .85; margin-top: 3px; }
+
+/* story */
+.story { text-align: center; }
+.story p { font-family: var(--serif); font-size: 21px; line-height: 1.6; font-style: italic; opacity: .9; }
+.story .sign { margin-top: 18px; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); }
+
+/* footer */
+.inv-footer { text-align: center; padding: 50px 30px 60px; opacity: .6; }
+.inv-footer .h { font-family: var(--serif); font-size: 22px; }
+.inv-footer .brand { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; margin-top: 10px; }
+.inv-footer .brand a { color: var(--accent); }
+
+/* bottom nav */
+.bottom-nav {
+  position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); z-index: 30;
+  display: flex; gap: 4px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 100px; padding: 7px; box-shadow: 0 10px 30px rgba(0,0,0,.4); backdrop-filter: blur(10px);
+}
+.bottom-nav a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; opacity: .7; transition: .2s; }
+.bottom-nav a:hover, .bottom-nav a.active { background: var(--accent); color: var(--bg); opacity: 1; }
+.bottom-nav svg { width: 20px; height: 20px; }
+
+/* floating music toggle */
+.music-toggle {
+  position: fixed; top: 16px; right: 16px; z-index: 30; width: 44px; height: 44px; border-radius: 50%;
+  background: var(--card); border: 1px solid var(--line); color: var(--accent); cursor: pointer;
+  display: grid; place-items: center; box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+.music-toggle svg { width: 20px; height: 20px; }
+.music-toggle.playing { animation: spin 6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* falling petals deco */
+.petal { position: fixed; top: -40px; z-index: 1; pointer-events: none; opacity: .6; animation: fall linear infinite; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-i { opacity: 1; transform: none; transition: none; }
+  .music-toggle.playing { animation: none; }
+  .petal { display: none; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* ===================== THEMES ===================== */
+/* Altın Gece — siyah & altın, lüks */
+.theme-altin {
+  --bg: #0c0b0e; --fg: #f3ecdc; --accent: #c9a96a;
+  --card: rgba(255,255,255,.035); --line: rgba(201,169,106,.28);
+}
+.theme-altin .cover { background: radial-gradient(130% 80% at 50% 0%, #2a2336, #0a090c 72%); }
+
+/* Yıldız Tozu — lacivert/mor, minimal, yıldızlı */
+.theme-yildiz {
+  --bg: #07090f; --fg: #e9edff; --accent: #b8c4ff;
+  --card: rgba(255,255,255,.04); --line: rgba(184,196,255,.22);
+}
+.theme-yildiz .cover { background: radial-gradient(130% 80% at 50% 10%, #1a2547, #06070d 75%); }
+.theme-yildiz .inv { background:
+  radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+  radial-gradient(1px 1px at 70% 20%, #fff, transparent),
+  radial-gradient(1px 1px at 40% 70%, #fff, transparent),
+  radial-gradient(1.5px 1.5px at 85% 60%, #fff, transparent),
+  radial-gradient(1px 1px at 10% 80%, #fff, transparent), var(--bg);
+}
+
+/* Zarif Çiçek — açık, romantik, krem & gül */
+.theme-cicek {
+  --bg: #f7eee9; --fg: #4a3a35; --accent: #b07a6f;
+  --card: #ffffff; --line: rgba(176,122,111,.22);
+}
+.theme-cicek .cover { background: linear-gradient(165deg, #f6e6e3, #efe0d4); }
+.theme-cicek .map-embed { filter: none; }
+
+/* Kına Gecesi — zümrüt & altın & bordo, folklorik sıcaklık */
+.theme-kina {
+  --bg: #0e2a22; --fg: #f6efe2; --accent: #c9a96a; --accent2: #b3475a;
+  --card: rgba(255,255,255,.045); --line: rgba(201,169,106,.26);
+}
+.theme-kina .cover { background: radial-gradient(130% 80% at 50% 0%, #1f4438, #0a1d17 72%); }
+.theme-kina .event .ico, .theme-kina .countdown .box small { color: var(--accent2); }
+
+/* Nişan / Söz — bordo & krem & altın, soylu sıcaklık */
+.theme-nisan {
+  --bg: #2a0f18; --fg: #f6ece2; --accent: #d8b478; --accent2: #f3e9dc;
+  --card: rgba(255,255,255,.04); --line: rgba(216,180,120,.26);
+}
+.theme-nisan .cover { background: radial-gradient(130% 80% at 50% 0%, #401622, #1c0a10 72%); }
+
+/* Sünnet — prens lacivert & altın & beyaz, neşeli asalet */
+.theme-sunnet {
+  --bg: #0e1f42; --fg: #f3f5fb; --accent: #d4af37; --accent2: #9fb4e8;
+  --card: rgba(255,255,255,.045); --line: rgba(212,175,55,.28);
+}
+.theme-sunnet .cover { background: radial-gradient(130% 80% at 50% 0%, #1c3666, #081024 72%); }
+.theme-sunnet .event .ico { font-size: 30px; }
+
+/* Baby Shower — adaçayı & şeftali & krem, şefkatli/açık tema */
+.theme-bebek {
+  --bg: #f6f1e8; --fg: #4f4439; --accent: #9caf91; --accent2: #e8a98c;
+  --card: #ffffff; --line: rgba(156,175,145,.28);
+}
+.theme-bebek .cover { background: linear-gradient(165deg, #f0ece1, #f4e0d4); }
+.theme-bebek .map-embed { filter: none; }
+
+/* Doğum Günü — siyah & altın & canlı mor aksan, enerjik kutlama */
+.theme-dogumgunu {
+  --bg: #141118; --fg: #f5efe6; --accent: #c9a96a; --accent2: #8f7ff0;
+  --card: rgba(255,255,255,.045); --line: rgba(143,127,240,.25);
+}
+.theme-dogumgunu .cover { background: radial-gradient(130% 80% at 50% 0%, #2a2140, #0d0b12 72%); }
+.theme-dogumgunu .countdown .box b { color: var(--accent2); }
+
+/* Açılış / Kurumsal — antrasit & altın & platin, prestij + güven */
+.theme-acilis {
+  --bg: #1a1a1d; --fg: #f0f0f1; --accent: #c9a96a; --accent2: #c4cad4;
+  --card: rgba(255,255,255,.04); --line: rgba(196,202,212,.22);
+}
+.theme-acilis .cover { background: radial-gradient(130% 80% at 50% 0%, #2b2c33, #0f0f12 72%); }
+.theme-acilis .person .photo { border-radius: 16px; }

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <defs>
+    <radialGradient id="g2" cx="50%" cy="10%" r="70%">
+      <stop offset="0%" stop-color="#2c2436"/>
+      <stop offset="75%" stop-color="#0e0d10"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#g2)"/>
+  <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4 Z"
+      fill="#c9a96a" opacity="0.85" transform="translate(880,220) scale(1.3)"/>
+  <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4 Z"
+      fill="#ddc596" opacity="0.5" transform="translate(160,1700) scale(1.0)"/>
+  <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4 Z"
+      fill="#c9a96a" opacity="0.4" transform="translate(950,1750) scale(0.7)"/>
+
+  <text x="540" y="760" text-anchor="middle" font-family="'Jost', -apple-system, sans-serif" font-size="24" letter-spacing="10" fill="#c9a96a">DİJİTAL DAVETİYE</text>
+  <text x="540" y="900" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="96" font-weight="600" fill="#f5efe6">davetiyen</text>
+  <text x="540" y="1030" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="96" font-weight="600" fill="#c9a96a">5 dakikada</text>
+  <text x="540" y="1160" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="96" font-weight="600" fill="#f5efe6">hazır.</text>
+
+  <text x="540" y="1250" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-style="italic" fill="#a9a096">Sevdiklerini en zarif haliyle,</text>
+  <text x="540" y="1300" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="32" font-style="italic" fill="#a9a096">dakikalar içinde davet et.</text>
+
+  <rect x="365" y="1400" width="350" height="76" rx="38" fill="none" stroke="#c9a96a" stroke-width="2"/>
+  <text x="540" y="1450" text-anchor="middle" font-family="'Jost', -apple-system, sans-serif" font-size="24" letter-spacing="4" fill="#c9a96a">DAVETİMHAZIR.XYZ</text>
+
+  <text x="540" y="1820" text-anchor="middle" font-family="'Jost', -apple-system, sans-serif" font-size="22" letter-spacing="3" fill="#a9a096">↑ Hemen başla — link yukarıda</text>
+</svg>

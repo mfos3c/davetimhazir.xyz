@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>davetim hazır — Dijital Düğün & Davetiye Sitesi</title>
+<meta name="description" content="Dakikalar içinde kişiye özel dijital davetiye. Geri sayım, müzik, harita, katılım formu (RSVP) ve dijital anı defteri. Tek link ile herkese ulaş.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+<meta property="og:title" content="davetim hazır — Davetiyen 5 Dakikada Hazır">
+<meta property="og:description" content="Sevdiklerini en zarif haliyle, dakikalar içinde davet et.">
+<meta property="og:image" content="assets/og/og-default.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#" class="logo">davetim<b>hazır</b><span class="dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#nasil">Nasıl Çalışır</a>
+      <a href="templates/index.html">Şablonlar</a>
+      <a href="#fiyatlar">Fiyatlar</a>
+      <a href="#sss">S.S.S</a>
+    </div>
+    <div class="nav-actions">
+      <a href="templates/index.html" class="btn btn-ghost">Şablonları Gör</a>
+      <a href="#fiyatlar" class="btn btn-primary">Davetiyeni Oluştur</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="hero-badge">✦ Düğün · Nişan · Kına · Sünnet · Baby Shower ve daha fazlası</div>
+      <span class="eyebrow">Dijital Düğün & Etkinlik Davetiyesi</span>
+      <h1>Davetin bir <em>tık</em> uzağında.</h1>
+      <p class="lead">Matbaa yok, kargo yok, bekleme yok. Bilgilerini gönder; geri sayımlı, müzikli, haritalı ve katılım formlu <strong>kişiye özel dijital davetiyen</strong> dakikalar içinde hazır. Tek bir link ile tüm sevdiklerine ulaş.</p>
+      <div class="hero-cta">
+        <a href="#fiyatlar" class="btn btn-gold">Hemen Başla →</a>
+        <a href="templates/index.html" class="btn btn-ghost">Şablonları İncele</a>
+      </div>
+      <div class="hero-meta">
+        <div class="stat"><b>5 dk</b><span>Ortalama teslim</span></div>
+        <div class="stat"><b>%100</b><span>Mobil uyumlu</span></div>
+        <div class="stat"><b>∞</b><span>Sınırsız davetli</span></div>
+      </div>
+      <div class="hero-proof">
+        <div class="avatars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <p><strong>500+ çift</strong> davetiyesini davetim hazır ile gönderdi</p>
+      </div>
+    </div>
+
+    <!-- phone mockup -->
+    <div class="reveal d2">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ps-eyebrow">Davetlisiniz</div>
+          <div class="ps-names">Elif<span>&amp;</span>Polat</div>
+          <div class="ps-date">7 Temmuz 2026 · İstanbul</div>
+          <div class="ps-count" id="heroCount">
+            <div><b id="hc-d">77</b><small>Gün</small></div>
+            <div><b id="hc-h">21</b><small>Saat</small></div>
+            <div><b id="hc-m">15</b><small>Dk</small></div>
+            <div><b id="hc-s">34</b><small>Sn</small></div>
+          </div>
+          <div class="ps-btn">Davetiyeyi Aç</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST MARQUEE -->
+<div class="trust">
+  <div class="marquee">
+    <span>Düğün</span><span>Nişan</span><span>Kına Gecesi</span><span>Söz</span><span>Sünnet</span><span>Doğum Günü</span><span>Baby Shower</span><span>Açılış</span>
+    <span>Düğün</span><span>Nişan</span><span>Kına Gecesi</span><span>Söz</span><span>Sünnet</span><span>Doğum Günü</span><span>Baby Shower</span><span>Açılış</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section features" id="ozellikler">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Neler Var?</span>
+      <h2>Bir kartonun yapamadığı her şey.</h2>
+      <p>Dijital davetiyen sadece güzel görünmez — yaşar, hatırlatır ve sana geri bilgi getirir.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Canlı Geri Sayım</h3>
+        <p>Büyük güne kalan gün, saat ve dakika davetiyende canlı akar. Heyecanı taze tutar.</p>
+      </div>
+      <div class="feature reveal d1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div>
+        <h3>Arka Plan Müziği</h3>
+        <p>Açılışta size özel şarkı çalsın. Davetiye bir anıya dönüşsün.</p>
+      </div>
+      <div class="feature reveal d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>Konum & Yol Tarifi</h3>
+        <p>Mekan haritada gömülü gelir; tek dokunuşla navigasyon başlar. Kimse kaybolmaz.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div>
+        <h3>Katılım Formu (RSVP)</h3>
+        <p>Kim geliyor, kaç kişi? Misafirlerin tek tıkla yanıtlar, sen listeyi anlık görürsün.</p>
+      </div>
+      <div class="feature reveal d1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a0 0 0 0 1 0 0H6a2 2 0 0 1-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div>
+        <h3>Dijital Anı Defteri</h3>
+        <p>Sevdiklerin isimleriyle dilek ve mesaj bıraksın; ömür boyu saklanır.</p>
+      </div>
+      <div class="feature reveal d2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h7v7"/></svg></div>
+        <h3>QR Kod & Tek Link</h3>
+        <p>WhatsApp'tan paylaş ya da QR bas. Sınırsız kişiye, hiçbir ek ücret olmadan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how" id="nasil">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">3 Adımda Hazır</span>
+      <h2>Zahmetsiz, hızlı, zarif.</h2>
+      <p>Tasarımla, kodla, teknik detayla uğraşmazsın. Sen bilgileri ver, gerisini biz hallederiz.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <h3>Formu Doldur</h3>
+        <p>İsimler, tarih, mekan ve fotoğraflarını hazır formumuza gir. 3 dakika sürer.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="num">2</div>
+        <h3>Şablonunu Seç</h3>
+        <p>Sana en yakışan temayı beğen; davetiyeni kişiye özel hazırlayıp önizleme gönderelim.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="num">3</div>
+        <h3>Linkini Paylaş</h3>
+        <p>Onayından sonra kendi linkin yayında. WhatsApp'tan herkese gönder, keyfine bak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLATES -->
+<section class="section templates-sec" id="sablonlar">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Hazır Şablonlar</span>
+      <h2>Her tarza bir davetiye.</h2>
+      <p>Aşağıdaki temalardan birini seç, canlı önizlemesini aç. Hepsi renkleri ve içeriğiyle sana özel ayarlanır.</p>
+    </div>
+    <div class="tpl-grid">
+      <a href="templates/altin-gece.html" class="tpl-card reveal">
+        <div class="tpl-thumb theme-altin">
+          <div>
+            <div class="t-eyebrow">Davetlisiniz</div>
+            <div class="t-names">Elif<span>&amp;</span>Polat</div>
+            <div class="t-date">7 · 7 · 2026</div>
+            <div class="t-open">Davetiyeyi Aç</div>
+          </div>
+        </div>
+        <div class="tpl-meta"><div><h3>Altın Gece</h3><span>Klasik · Lüks</span></div><span class="go">Önizle →</span></div>
+      </a>
+      <a href="templates/yildiz-tozu.html" class="tpl-card reveal d1">
+        <div class="tpl-thumb theme-yildiz">
+          <div>
+            <div class="t-eyebrow">Davetlisiniz</div>
+            <div class="t-names">Halil<span>&amp;</span>Gamze</div>
+            <div class="t-date">7 Temmuz 2026</div>
+            <div class="t-open">Davetiyeyi Aç</div>
+          </div>
+        </div>
+        <div class="tpl-meta"><div><h3>Yıldız Tozu</h3><span>Modern · Minimal</span></div><span class="go">Önizle →</span></div>
+      </a>
+      <a href="templates/zarif-cicek.html" class="tpl-card reveal d2">
+        <div class="tpl-thumb theme-cicek">
+          <div>
+            <div class="t-eyebrow">Davetlisiniz</div>
+            <div class="t-names">Zeynep<span>&amp;</span>Mert</div>
+            <div class="t-date">14 Eylül 2026</div>
+            <div class="t-open">Davetiyeyi Aç</div>
+          </div>
+        </div>
+        <div class="tpl-meta"><div><h3>Zarif Çiçek</h3><span>Romantik · Açık</span></div><span class="go">Önizle →</span></div>
+      </a>
+    </div>
+    <div class="tpl-more reveal">
+      <a href="templates/index.html" class="btn btn-ghost">Tüm Şablonları Gör (8) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="fiyatlar">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Fiyatlar</span>
+      <h2>Tek seferlik ödeme, ömürlük davetiye.</h2>
+      <p>Gizli ücret yok. Davetiyen etkinliğinden sonra da yayında kalır.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price reveal">
+        <h3>Sade</h3>
+        <div class="amount">₺349</div>
+        <div class="sub">Şık ve yeterli temel davetiye</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Tek temalı davetiye</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Geri sayım & tarih</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Konum & yol tarifi</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Sınırsız paylaşım</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Katılım formu (RSVP)</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Müzik & anı defteri</li>
+        </ul>
+        <a href="#" class="btn btn-ghost" data-plan="Sade">Seç</a>
+      </div>
+      <div class="price featured reveal d1">
+        <h3>Premium</h3>
+        <div class="amount">₺599</div>
+        <div class="sub">En çok tercih edilen tam paket</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Tüm temalar arasından seçim</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Geri sayım & arka plan müziği</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Katılım formu (RSVP)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Dijital anı defteri</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Birden çok merasim (kına+düğün)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> QR kod & öncelikli teslim</li>
+        </ul>
+        <a href="#" class="btn btn-gold" data-plan="Premium">Seç</a>
+      </div>
+      <div class="price reveal d2">
+        <h3>VIP</h3>
+        <div class="amount">₺999</div>
+        <div class="sub">Tasarımı tamamen sana özel</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Premium'daki her şey</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Özel renk & font tasarımı</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Çiftin hikayesi & galeri</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Özel alan adı (siz.davetimhazir.xyz)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> WhatsApp'tan birebir destek</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Aynı gün teslim</li>
+        </ul>
+        <a href="#" class="btn btn-ghost" data-plan="VIP">Seç</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="sss">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sıkça Sorulanlar</span>
+      <h2>Aklındaki soru burada.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">Davetiyem ne kadar sürede hazır olur? <span class="pm">+</span></button>
+        <div class="faq-a"><p>Formu doldurup ödemeni tamamladıktan sonra ortalama 5 dakika–2 saat içinde önizleme linkin elinde olur. VIP pakette aynı gün teslim garantilidir.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Davetiyeyi nasıl paylaşırım? <span class="pm">+</span></button>
+        <div class="faq-a"><p>Sana özel bir link (örn. davetimhazir.xyz/elif-polat) ve istersen QR kod veririz. WhatsApp, Instagram ya da SMS'ten sınırsız kişiye, ek ücret olmadan gönderebilirsin.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Bilgilerimde değişiklik yapabilir miyim? <span class="pm">+</span></button>
+        <div class="faq-a"><p>Tabii. Teslimden sonra bir kez ücretsiz revizyon hakkın var; saat, mekan ya da yazım hatası fark etmeksizin güncelleriz.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Ödemeyi nasıl yapıyorum? <span class="pm">+</span></button>
+        <div class="faq-a"><p>Paketini seçtikten sonra Telegram/WhatsApp üzerinden seninle iletişime geçiyoruz; IBAN ile havale/EFT yapıp dekontu paylaşıyorsun. Ödeme onaylanınca davetiyen yayına alınır.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">Davetiye etkinlikten sonra kapanır mı? <span class="pm">+</span></button>
+        <div class="faq-a"><p>Hayır. Davetiyen anı olarak yayında kalır; dijital anı defterindeki mesajları sonradan okumaya devam edebilirsin.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Mutluluğun <em>davetiyesi</em> hazır olsun.</h2>
+    <p>Birkaç dakikada başla, sevdiklerini en şık haliyle davet et.</p>
+    <a href="#fiyatlar" class="btn btn-gold">Davetiyeni Oluştur →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="logo">davetim<b>hazır</b><span class="dot">.</span></div>
+        <p>Sevdiklerini en zarif haliyle davet etmenin en hızlı yolu. Dijital davetiye, sıfır zahmet.</p>
+      </div>
+      <div>
+        <h4>Keşfet</h4>
+        <ul>
+          <li><a href="#ozellikler">Özellikler</a></li>
+          <li><a href="#nasil">Nasıl Çalışır</a></li>
+          <li><a href="templates/index.html">Şablonlar</a></li>
+          <li><a href="#fiyatlar">Fiyatlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Davetiye Türleri</h4>
+        <ul>
+          <li><a href="#sablonlar">Düğün</a></li>
+          <li><a href="#sablonlar">Nişan & Söz</a></li>
+          <li><a href="#sablonlar">Kına Gecesi</a></li>
+          <li><a href="#sablonlar">Doğum Günü</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="https://t.me/" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:merhaba@davetimhazir.xyz">merhaba@davetimhazir.xyz</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 davetimhazır — Tüm hakları saklıdır.</span>
+      <span>Sevgiyle tasarlandı ✦ İstanbul</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/" class="float-cta" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.207zm5.515-9.587c-.371-.012-1.04.122-1.604.745-.564.623-1.005 1.32-.951 2.846.054 1.526.846 2.953 2.42 4.527 1.574 1.574 3.001 2.366 4.527 2.42 1.526.054 2.223-.387 2.846-.951.623-.564.757-1.233.745-1.604-.012-.371-.213-.557-.43-.69l-1.91-1.18c-.218-.134-.486-.063-.69.146l-.78.84c-.205.21-.41.27-.69.146-.28-.124-1.18-.435-2.247-1.387-.83-.74-1.39-1.654-1.553-1.933-.163-.28-.017-.43.123-.57l.633-.74c.14-.16.187-.27.28-.45.094-.18.047-.34-.023-.476l-.78-1.89c-.07-.17-.218-.27-.396-.276z"/></svg>
+  Bize Yaz
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

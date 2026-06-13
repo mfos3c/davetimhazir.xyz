@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="davetim hazır işareti — kemer">
+  <!-- Direction D — "Kemer" (Arch): an open invitation gate/arch with a star above —
+       evokes a venue entrance / opened card. currentColor. -->
+  <path d="M22 92 V46 C22 26 35 14 50 14 C65 14 78 26 78 46 V92" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+  <path d="M50 0 C51 6 54 9 60 10 C54 11 51 14 50 20 C49 14 46 11 40 10 C46 9 49 6 50 0 Z" fill="currentColor"/>
+</svg>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMEN — Açılış Davetiyesi</title>
+<meta name="description" content="LUMEN Coffee & Roastery açılış davetine bekleriz — 19 Eylül 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="invitation.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+</head>
+<body>
+<div class="inv theme-acilis" id="inv">
+
+  <div id="petals" data-glyph="✦"></div>
+
+  <!-- COVER -->
+  <section class="cover" id="cover">
+    <div class="eyebrow">Açılışa Davetlisiniz</div>
+    <h1 class="names">LUMEN</h1>
+    <div class="rule"></div>
+    <div class="date">19 Eylül 2026 · İstanbul</div>
+    <button class="open-btn" id="openBtn">Davetiyeyi Aç</button>
+    <div class="music-hint">♪ Müzikle açılır</div>
+  </section>
+
+  <!-- music + nav -->
+  <button class="music-toggle" id="musicToggle" aria-label="Müzik">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+  </button>
+  <audio id="bgMusic" loop preload="none"><!-- Cursor: src buraya (Supabase storage) --></audio>
+
+  <!-- COUPLE + COUNTDOWN -->
+  <section class="sec" data-sec="cift">
+    <div class="couple reveal-i">
+      <div class="person">
+        <div class="photo">L</div>
+        <h3>LUMEN Coffee &amp; Roastery</h3>
+        <p>Özenle kavrulmuş, özenle sunulmuş</p>
+      </div>
+      <div class="person">
+        <div class="photo">AM</div>
+        <h3>Aslı &amp; Mert</h3>
+        <p>Kurucu Ortaklar</p>
+      </div>
+    </div>
+
+    <div style="height:46px"></div>
+    <div class="sub reveal-i">Açılışa Kalan</div>
+    <div class="countdown reveal-i" id="countdown" data-target="2026-09-19T18:00:00">
+      <div class="box"><b data-d>77</b><small>Gün</small></div>
+      <div class="box"><b data-h>21</b><small>Saat</small></div>
+      <div class="box"><b data-m>15</b><small>Dakika</small></div>
+      <div class="box"><b data-s>34</b><small>Saniye</small></div>
+    </div>
+  </section>
+
+  <!-- EVENTS (merasim) -->
+  <section class="sec" data-sec="merasim">
+    <div class="label reveal-i">Açılış Programı</div>
+    <div class="sub reveal-i">Sizi aramızda görmekten mutluluk duyarız</div>
+
+    <div class="event reveal-i">
+      <div class="ico">✂️</div>
+      <h3>KURDELE KESİMİ</h3>
+      <div class="when">18:00</div>
+      <div class="day">19 Eylül 2026 · Cumartesi</div>
+      <div class="place">LUMEN Coffee &amp; Roastery</div>
+      <div class="addr">Bağdat Cad. No:142, Kadıköy / İstanbul</div>
+      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Bağdat+Caddesi+Kadıköy+İstanbul" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Konum
+      </a>
+    </div>
+
+    <div class="event reveal-i">
+      <div class="ico">☕</div>
+      <h3>KOKTEYL &amp; TADIM</h3>
+      <div class="when">19:00 – 22:00</div>
+      <div class="day">19 Eylül 2026 · Cumartesi</div>
+      <div class="place">LUMEN Coffee &amp; Roastery</div>
+      <div class="addr">Özel kavrum menüsü &amp; canlı müzik</div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="sec" data-sec="mekan">
+    <div class="label reveal-i">Mekan</div>
+    <div class="sub reveal-i">Yeni adresimizde sizi bekliyoruz</div>
+    <iframe class="map-embed reveal-i" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=Bağdat+Caddesi+Kadıköy+İstanbul&output=embed"></iframe>
+  </section>
+
+  <!-- RSVP -->
+  <section class="sec" data-sec="katilim">
+    <div class="label reveal-i">Katılım Durumu</div>
+    <div class="sub reveal-i">Lütfen katılımınızı bildirin</div>
+    <div class="card-form reveal-i">
+      <p class="note">Davetiyemiz sınırlı sayıda kişi içindir, lütfen katılım durumunuzu bildirin.</p>
+      <form id="rsvpForm">
+        <div class="field">
+          <label>Ad Soyad</label>
+          <input type="text" name="name" placeholder="Adınız Soyadınız" required>
+        </div>
+        <div class="field">
+          <label>Katılım</label>
+          <div class="radios">
+            <label><input type="radio" name="attending" value="evet" checked><span>Katılıyorum</span></label>
+            <label><input type="radio" name="attending" value="hayir"><span>Katılamıyorum</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Kişi Sayısı</label>
+          <select name="guests">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Gönder</button>
+      </form>
+      <div class="form-ok" id="rsvpOk">Teşekkürler! Yanıtınız bize ulaştı ✦</div>
+    </div>
+  </section>
+
+  <!-- GUESTBOOK -->
+  <section class="sec" data-sec="ani">
+    <div class="label reveal-i">Dijital Anı Defteri</div>
+    <div class="sub reveal-i">Bir dileğinizi bizimle paylaşın</div>
+    <div class="card-form reveal-i">
+      <form id="guestForm">
+        <div class="field">
+          <label>Adınız</label>
+          <input type="text" name="name" placeholder="Adınız" required>
+        </div>
+        <div class="field">
+          <label>Mesajınız</label>
+          <textarea name="message" placeholder="Dileğinizi yazın..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Defterimize Yaz</button>
+      </form>
+      <div class="guest-list" id="guestList">
+        <div class="guest reveal-i"><div class="g-name">Selin K.</div><div class="g-msg">Yeni mekanınız hayırlı olsun, ilk günden oradayız! ✦</div></div>
+        <div class="guest reveal-i"><div class="g-name">Burak T.</div><div class="g-msg">Tebrikler, başarılar dilerim — kahvelerinizi merakla bekliyorum.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="sec story" data-sec="hikaye">
+    <div class="sub reveal-i">Hikayemiz</div>
+    <div class="reveal-i">
+      <p>"Bir fincan kahveden doğan bir hayal… İki yıllık emek, sayısız deneme ve bir tutku şimdi kapılarını açıyor. Bu yolculukta bizimle olun."</p>
+      <div class="sign">— Aslı &amp; Mert</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="inv-footer">
+    <div class="h">LUMEN Coffee &amp; Roastery</div>
+    <div class="brand">Hazırlayan <a href="https://davetimhazir.xyz" target="_blank" rel="noopener">davetimhazir.xyz</a></div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <a href="#cift" class="active" aria-label="Çift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></a>
+    <a href="#ani" aria-label="Dilekler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></a>
+    <a href="#merasim" aria-label="Tarih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></a>
+    <a href="#katilim" aria-label="Katılım"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H5.2L4 17.5z"/></svg></a>
+  </nav>
+
+</div>
+
+<script>window.INVITE = { slug: "lumen-acilis", theme: "acilis" };</script>
+<script src="invitation.js"></script>
+</body>
+</html>

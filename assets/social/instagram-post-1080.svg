@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <radialGradient id="g1" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#2c2436"/>
+      <stop offset="75%" stop-color="#0e0d10"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#g1)"/>
+  <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4 Z"
+      fill="#c9a96a" opacity="0.85" transform="translate(880,80) scale(1.1)"/>
+  <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4 Z"
+      fill="#ddc596" opacity="0.5" transform="translate(120,920) scale(0.9)"/>
+  <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4 Z"
+      fill="#c9a96a" opacity="0.4" transform="translate(950,950) scale(0.6)"/>
+
+  <text x="540" y="380" text-anchor="middle" font-family="'Jost', -apple-system, sans-serif" font-size="22" letter-spacing="10" fill="#c9a96a">DİJİTAL DAVETİYE</text>
+  <text x="540" y="500" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="84" font-weight="600" fill="#f5efe6">davetiyen</text>
+  <text x="540" y="610" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="84" font-weight="600" fill="#c9a96a">5 dakikada</text>
+  <text x="540" y="720" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="84" font-weight="600" fill="#f5efe6">hazır.</text>
+
+  <text x="540" y="800" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" font-style="italic" fill="#a9a096">Sevdiklerini en zarif haliyle davet et</text>
+
+  <rect x="390" y="860" width="300" height="64" rx="32" fill="none" stroke="#c9a96a" stroke-width="2"/>
+  <text x="540" y="901" text-anchor="middle" font-family="'Jost', -apple-system, sans-serif" font-size="20" letter-spacing="4" fill="#c9a96a">DAVETİMHAZIR.XYZ</text>
+</svg>

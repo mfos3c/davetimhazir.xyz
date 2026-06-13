@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>davetim hazır — Tasarım Sistemi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .ds { padding: 64px 0 120px; }
+  .ds-head { padding: 64px 0 24px; border-bottom: 1px solid var(--line); margin-bottom: 56px; }
+  .ds-head h1 { font-family: var(--serif); font-size: clamp(40px,6vw,64px); font-weight: 600; margin: 10px 0 12px; }
+  .ds-head p { color: var(--ink-soft); font-size: 17px; max-width: 46em; }
+  .ds-block { margin-bottom: 80px; }
+  .ds-block h2 { font-family: var(--serif); font-size: clamp(28px,3.4vw,40px); font-weight: 600; margin-bottom: 8px; }
+  .ds-block > p.desc { color: var(--ink-soft); font-size: 15.5px; max-width: 52em; margin-bottom: 32px; }
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 16px; }
+  .swatch { border: 1px solid var(--line-soft); border-radius: var(--r); overflow: hidden; }
+  .swatch .fill { height: 84px; }
+  .swatch .meta { padding: 12px 14px; }
+  .swatch .meta b { display: block; font-size: 14px; }
+  .swatch .meta span { display: block; font-size: 12px; color: var(--ink-soft); font-family: var(--sans); letter-spacing: .03em; margin-top: 2px; }
+  .type-row { display: flex; align-items: baseline; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line-soft); flex-wrap: wrap; }
+  .type-row .label { width: 160px; flex: none; font-size: 12px; color: var(--ink-soft); letter-spacing: .08em; text-transform: uppercase; }
+  .type-row .sample { font-family: var(--serif); }
+  .type-row .sample.sans { font-family: var(--sans); }
+  .space-grid, .radius-grid, .shadow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 16px; }
+  .space-box { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+  .space-box .bar { background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep)); height: 10px; border-radius: 4px; }
+  .space-box span { font-size: 12px; color: var(--ink-soft); }
+  .radius-box, .shadow-box { background: var(--surface); border: 1px solid var(--line-soft); height: 84px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); }
+  .comp-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin-bottom: 28px; }
+  .comp-card-demo { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--r); padding: 24px; max-width: 320px; }
+  .comp-card-demo h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 6px; }
+  .comp-card-demo p { font-size: 14.5px; color: var(--ink-soft); }
+  .form-demo { display: flex; flex-direction: column; gap: 12px; max-width: 360px; }
+  .form-demo label { font-size: 13px; color: var(--ink-soft); letter-spacing: .04em; }
+  .form-demo input, .form-demo textarea {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px 14px; color: var(--ink); font-family: var(--sans); font-size: 15px;
+  }
+  .form-demo input:focus, .form-demo textarea:focus { border-color: var(--gold); }
+  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px,1fr)); gap: 14px; text-align: center; }
+  .icon-box { border: 1px solid var(--line-soft); border-radius: 12px; padding: 18px 8px; background: var(--surface); }
+  .icon-box svg { width: 26px; height: 26px; margin: 0 auto 8px; color: var(--gold-soft); display: block; }
+  .icon-box span { font-size: 11px; color: var(--ink-soft); }
+  .event-palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 20px; }
+  .event-card { border: 1px solid var(--line-soft); border-radius: var(--r); overflow: hidden; background: var(--surface); }
+  .event-card .bars { display: flex; height: 64px; }
+  .event-card .bars div { flex: 1; }
+  .event-card .info { padding: 16px 18px; }
+  .event-card .info h3 { font-family: var(--serif); font-size: 20px; margin-bottom: 4px; }
+  .event-card .info p { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+  .event-card .info code { font-size: 11px; color: var(--gold-soft); }
+  code { font-family: monospace; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo">davetim<b>hazır</b><span class="dot">.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="templates/index.html">Şablonlar</a>
+      <a href="#renk">Renk Sistemi</a>
+      <a href="#tipografi">Tipografi</a>
+      <a href="#bilesenler">Bileşenler</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-toggle" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap ds">
+  <div class="ds-head">
+    <span class="eyebrow">Tasarım Sistemi</span>
+    <h1>davetim hazır — Stil Rehberi</h1>
+    <p>Ana sistem: <strong>Ivory + Antrasit + Altın</strong> — landing ve davetiye temalarının türediği çekirdek. Bu sayfa renk token'larını, tipografi ölçeğini, boşluk/gölge/köşe sistemini ve temel bileşenleri belgeler. Tüm değerler CSS değişkenleri (<code>:root</code>) üzerinden tanımlıdır — <code>css/style.css</code>.</p>
+  </div>
+
+  <!-- COLOR TOKENS -->
+  <section class="ds-block" id="renk">
+    <h2>Marka Ana Sistemi</h2>
+    <p class="desc">Landing'in zemini koyu antrasit — "özel davet edilmiş" hissi veren prestij paleti. Kısıtlı renk (antrasit + ivory metin + altın aksan) premium algıyı güçlendirir; çok renk ucuzlar.</p>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="fill" style="background:#0e0d10"></div><div class="meta"><b>Zemin (bg)</b><span>#0E0D10</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#151319"></div><div class="meta"><b>Zemin Alt (bg-alt)</b><span>#15131A</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#1d1a21"></div><div class="meta"><b>Yüzey (surface)</b><span>#1D1A21</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#f5efe6"></div><div class="meta"><b>Ivory (metin/aksan zemin)</b><span>#F5EFE6</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#a9a096"></div><div class="meta"><b>İkincil Metin</b><span>#A9A096</span></div></div>
+      <div class="swatch"><div class="fill" style="background:linear-gradient(135deg,#ddc596,#b8945f)"></div><div class="meta"><b>Altın Aksan</b><span>#C9A96A → #B8945F</span></div></div>
+    </div>
+  </section>
+
+  <!-- PSYCHOLOGY -->
+  <section class="ds-block">
+    <h2>Renk Psikolojisi — İlkeler</h2>
+    <p class="desc">
+      <strong>Kısıtlılık = lüks.</strong> 2–3 ana renk + 1 metalik aksan; 60-30-10 dengesi.
+      <strong>Koyu zemin + metalik aksan</strong> dışlayıcı ve prestijli hissettirir.
+      <strong>Kırık beyaz &gt; saf beyaz</strong> — ivory "pahalı kâğıt" dokusu verir.
+      <strong>Doygunluğu düşür</strong> — mat, tozlu tonlar sofistike durur.
+      <strong>Mücevher tonları</strong> (zümrüt, bordo, lacivert) zenginlik ve köklülük taşır.
+      <strong>Metal sıcaklığı</strong> duygu taşır: altın = sıcak/davetkâr, gümüş/platin = modern/serin, rose gold = romantik.
+      Tüm kombinasyonlar AA kontrast hedefiyle seçildi.
+    </p>
+    <div class="event-palette">
+      <div class="event-card">
+        <div class="bars"><div style="background:#0e0d10"></div><div style="background:#c9a96a"></div></div>
+        <div class="info"><h3>Siyah + Altın</h3><p>Zamansız lüks, gece, prestij. Düğün ve marka ana sisteminin standardı. <code>theme-altin-gece</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#faf7f2"></div><div style="background:#1c1813"></div><div style="background:#b8945f"></div></div>
+        <div class="info"><h3>Ivory + Antrasit + Altın</h3><p>Sıcak premium, el yapımı kırtasiye hissi. Landing'in ikincil yüzeyleri ve açık temalı davetiyeler. <code>theme-marble-gold</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#0b1a33"></div><div style="background:#e7d3a1"></div></div>
+        <div class="info"><h3>Gece Laciverti + Şampanya</h3><p>Şık, yıldızlı, romantik-modern. Düğün — Yıldız Tozu teması. <code>theme-yildiz</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#0e3b2e"></div><div style="background:#c9a96a"></div><div style="background:#7a2031"></div></div>
+        <div class="info"><h3>Zümrüt + Altın + Bordo</h3><p>Köklü, bereketli. Kına gecesi için folklorik-sıcak. <code>theme-kina</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#5a1a2b"></div><div style="background:#f3e9dc"></div><div style="background:#b8945f"></div></div>
+        <div class="info"><h3>Bordo + Krem + Altın</h3><p>Soylu, sıcak, klasik. Nişan/Söz teması. <code>theme-nisan</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#10234a"></div><div style="background:#d4af37"></div><div style="background:#ffffff"></div></div>
+        <div class="info"><h3>Prens Lacivert + Altın</h3><p>Neşeli ama asil. Sünnet — "Maşallah" havası. <code>theme-sunnet</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#9ca891"></div><div style="background:#f3c9b0"></div><div style="background:#faf7f2"></div></div>
+        <div class="info"><h3>Adaçayı + Şeftali + Krem</h3><p>Şefkat, masumiyet. Baby Shower (nötr/gender reveal). <code>theme-bebek</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#141118"></div><div style="background:#c9a96a"></div><div style="background:#7f77dd"></div></div>
+        <div class="info"><h3>Siyah + Altın + Canlı Aksan</h3><p>Enerjik kutlama. Doğum günü (yetişkin/milestone). <code>theme-dogumgunu</code></p></div>
+      </div>
+      <div class="event-card">
+        <div class="bars"><div style="background:#1c1b1f"></div><div style="background:#c9a96a"></div><div style="background:#d8dce2"></div></div>
+        <div class="info"><h3>Antrasit + Altın + Platin</h3><p>Güven, prestij, profesyonellik. Açılış / kurumsal davet. <code>theme-acilis</code></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPE SCALE -->
+  <section class="ds-block" id="tipografi">
+    <h2>Tipografi Ölçeği</h2>
+    <p class="desc">Display: <strong>Cormorant Garamond</strong> (zarif, yüksek kontrast serif). Gövde: <strong>Jost</strong> (temiz geometrik sans). Güçlü hiyerarşi + cömert satır yüksekliği (1.65).</p>
+    <div class="type-row"><div class="label">Display / H1</div><div class="sample" style="font-size:64px; font-weight:600;">davetim hazır</div></div>
+    <div class="type-row"><div class="label">H2</div><div class="sample" style="font-size:44px; font-weight:600;">Bir tık uzağında</div></div>
+    <div class="type-row"><div class="label">H3</div><div class="sample" style="font-size:26px; font-weight:600;">Canlı Geri Sayım</div></div>
+    <div class="type-row"><div class="label">Lead / Body Large</div><div class="sample sans" style="font-size:19px;">Matbaa yok, kargo yok, bekleme yok.</div></div>
+    <div class="type-row"><div class="label">Body</div><div class="sample sans" style="font-size:17px;">Sevdiklerine tek linkle ulaş.</div></div>
+    <div class="type-row"><div class="label">Eyebrow / Etiket</div><div class="sample sans eyebrow" style="font-size:13px;">Dijital Davetiye</div></div>
+    <div class="type-row"><div class="label">Caption</div><div class="sample sans" style="font-size:13px; color:var(--ink-soft);">© 2026 davetim hazır</div></div>
+  </section>
+
+  <!-- SPACING / RADIUS / SHADOW -->
+  <section class="ds-block">
+    <h2>Boşluk, Köşe & Gölge Ölçeği</h2>
+    <p class="desc">8px tabanlı boşluk ritmi; tek köşe yarıçapı (<code>--r: 18px</code>) tutarlılık için; üç gölge seviyesi (yumuşak kart, derin kart, altın parıltı).</p>
+    <div class="space-grid">
+      <div class="space-box"><div class="bar" style="width:8px"></div><span>4 / 8px — ikon boşluğu</span></div>
+      <div class="space-box"><div class="bar" style="width:16px"></div><span>16px — kart iç boşluk birimi</span></div>
+      <div class="space-box"><div class="bar" style="width:24px"></div><span>24px — bileşen arası</span></div>
+      <div class="space-box"><div class="bar" style="width:40px"></div><span>40px — blok arası</span></div>
+      <div class="space-box"><div class="bar" style="width:96px"></div><span>96px — section padding</span></div>
+    </div>
+    <div style="height:28px"></div>
+    <div class="radius-grid">
+      <div class="radius-box" style="border-radius:10px;">10px — input</div>
+      <div class="radius-box" style="border-radius:18px;">18px — kart (--r)</div>
+      <div class="radius-box" style="border-radius:100px;">100px — buton/pill</div>
+    </div>
+    <div style="height:28px"></div>
+    <div class="shadow-grid">
+      <div class="shadow-box" style="box-shadow:var(--shadow-sm);">shadow-sm</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow);">shadow</div>
+      <div class="shadow-box" style="box-shadow:var(--shadow-gold);">shadow-gold</div>
+    </div>
+  </section>
+
+  <!-- COMPONENTS -->
+  <section class="ds-block" id="bilesenler">
+    <h2>Bileşenler</h2>
+    <p class="desc">Butonlar, kartlar ve form elemanları — tüm davetiye temaları ve landing aynı temel bileşenleri paylaşır.</p>
+
+    <div class="comp-row">
+      <a href="#" class="btn btn-gold">Davetiyemi Oluştur</a>
+      <a href="#" class="btn btn-primary">Birincil</a>
+      <a href="#" class="btn btn-ghost">İkincil / Ghost</a>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-card-demo">
+        <h3>Kart Başlığı</h3>
+        <p>Yüzey rengi (--surface), ince kenarlık ve hover'da hafif yükselme. Tüm özellik/şablon/fiyat kartlarının temeli.</p>
+      </div>
+    </div>
+
+    <div class="comp-row">
+      <form class="form-demo" onsubmit="return false">
+        <div>
+          <label for="ds-name">Ad Soyad</label>
+          <input id="ds-name" type="text" placeholder="Elif Yılmaz">
+        </div>
+        <div>
+          <label for="ds-msg">Mesajınız</label>
+          <textarea id="ds-msg" rows="3" placeholder="Dileğinizi yazın..."></textarea>
+        </div>
+        <button class="btn btn-gold" type="submit">Gönder</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ICONS -->
+  <section class="ds-block">
+    <h2>İkon Seti</h2>
+    <p class="desc">Çizgisel (outline), 1.6px kalınlık, altın tonunda — landing ve davetiyelerde aynı set kullanılır.</p>
+    <div class="icon-grid">
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Geri Sayım</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><span>Müzik</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Konum</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span>RSVP</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a0 0 0 0 1 0 0H6a2 2 0 0 1-2-2z"/><path d="M8 12h8M8 16h5"/></svg><span>Anı Defteri</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h7v7"/></svg><span>QR Kod</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-1.5z"/></svg><span>Yıldız / Motif</span></div>
+      <div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg><span>Davetiye</span></div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="bottom">
+      <span>© 2026 davetim hazır — Tasarım Sistemi</span>
+      <span><a href="index.html">Ana sayfaya dön</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
