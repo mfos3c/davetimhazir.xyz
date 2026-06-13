@@ -386,3 +386,51 @@ a { color: inherit; text-decoration: none; }
   .cpanel { transition: none; }
   .balloon, .confetti-bit { display: none; }
 }
+
+/* ---- DETAY CAROUSEL (3D yelpaze kartlar) ---- */
+.dcarousel { position: relative; height: 432px; perspective: 1500px; margin: 4px 0 6px; touch-action: pan-y; }
+.dtrack { position: relative; height: 100%; transform-style: preserve-3d; }
+.dcard {
+  position: absolute; top: 8px; left: 50%; width: 248px; height: 372px; margin-left: -124px;
+  border-radius: 24px; overflow: hidden; border: 6px solid #fff; background: var(--cbg, #b9a6c4); background-size: cover; background-position: center;
+  box-shadow: 0 34px 60px -24px rgba(0,0,0,.45); transition: transform .55s cubic-bezier(.33,1,.45,1), opacity .45s;
+  cursor: grab; -webkit-user-select: none; user-select: none;
+}
+.dcard .dwm { position: absolute; top: 14px; right: 18px; font-size: 58px; opacity: .26; }
+.dcard .dnum { position: absolute; top: 18px; left: 20px; font-family: var(--serif); font-size: 15px; color: #fff; opacity: .72; letter-spacing: .12em; }
+.dcard .dcontent {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px;
+  background: linear-gradient(to top, rgba(0,0,0,.74), rgba(0,0,0,.12) 52%, rgba(0,0,0,.02)); color: #fff;
+}
+.dcard .dico { font-size: 26px; margin-bottom: 8px; }
+.dcard h3 { font-family: var(--serif); font-size: 27px; font-weight: 600; line-height: 1.05; }
+.dcard p { font-size: 13.5px; opacity: .94; margin-top: 6px; line-height: 1.42; }
+.dcard p.dsmall { font-size: 12px; opacity: .82; letter-spacing: .03em; }
+.ddots { display: flex; gap: 7px; justify-content: center; margin-top: 4px; }
+.ddot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: .3s; cursor: pointer; }
+.ddot.active { background: var(--accent); width: 24px; border-radius: 5px; }
+
+/* ---- aksiyon chip'leri (takvim / paylaş) ---- */
+.actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+  border: 1px solid var(--line); color: var(--fg); padding: 12px 20px; border-radius: 100px; background: var(--card); transition: .25s;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+/* ---- cinsiyet tahmini ---- */
+.guess-wrap { display: flex; gap: 12px; justify-content: center; }
+.guess-btn {
+  flex: 1; max-width: 200px; cursor: pointer; border: 1.5px solid var(--line); background: var(--card); color: var(--fg);
+  border-radius: 16px; padding: 18px 14px; font-family: var(--sans); font-size: 15px; font-weight: 500; transition: .25s;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.guess-btn b { font-family: var(--serif); font-size: 24px; }
+.guess-btn:hover { transform: translateY(-2px); }
+.guess-btn.pink.sel { border-color: #e58aa8; background: rgba(229,138,168,.14); color: #d46e90; }
+.guess-btn.blue.sel { border-color: #7aa9d6; background: rgba(122,169,214,.14); color: #5d8cbd; }
+.guess-bar { display: flex; height: 10px; border-radius: 6px; overflow: hidden; margin: 16px auto 0; max-width: 280px; background: var(--card); border: 1px solid var(--line); }
+.guess-bar span { display: block; height: 100%; width: 50%; transition: width .5s; }
+.guess-bar .gb-pink { background: linear-gradient(90deg,#f6a5c0,#e58aa8); }
+.guess-bar .gb-blue { background: linear-gradient(90deg,#9ec5f0,#7aa9d6); }
+.guess-note { text-align: center; font-size: 12.5px; opacity: .7; margin-top: 12px; }

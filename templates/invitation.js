@@ -1,8 +1,9 @@
 /* ============================================================
    Dijital davetiye — ortak davranışlar + efekt motoru
    Efektler nişe göre: perde açılışı (düğün/nişan/kına/açılış),
-   pembe-mavi balon + patlama konfeti (baby shower/doğum günü),
-   konfeti (sünnet). Tüm efekt DOM'u JS ile enjekte edilir.
+   balon + konfeti (baby shower/doğum günü), konfeti (sünnet).
+   Baby shower: cinsiyet sürpriz — karışık pembe+mavi, PATLAMA YOK.
+   Ekstra: 3D detay carousel, cinsiyet tahmini, takvime ekle, paylaş.
    RSVP & anı defteri submit'leri stub (Cursor backend bağlayacak).
    ============================================================ */
 (function () {
@@ -20,7 +21,8 @@
     nisan:     { curtain: 1, burst: 'gold' },
     kina:      { curtain: 1, burst: 'kina' },
     sunnet:    { burst: 'royal' },
-    bebek:     { balloons: 1, burst: 'baby' },
+    mevlut:    { burst: 'gold' },
+    bebek:     { balloons: 1, burst: 'baby', noPop: 1 },   // cinsiyet sürpriz: patlama yok
     dogumgunu: { balloons: 1, burst: 'party' },
     acilis:    { curtain: 1, burst: 'gold' }
   };
@@ -31,7 +33,7 @@
     rose:  ['#e7b6ad', '#bb8a5f', '#f3dccf', '#d98f86'],
     kina:  ['#e3c372', '#c14258', '#f7e7b0', '#8f1d2c'],
     royal: ['#e0c074', '#9fb4e8', '#ffffff', '#d4af37'],
-    baby:  ['#f6a5c0', '#9ec5f0', '#ffffff', '#ffd1e3'],
+    baby:  ['#f6a5c0', '#9ec5f0', '#ffffff', '#ffd1e3', '#cfe6ff'], // karışık — cinsiyet belli olmaz
     party: ['#f6a5c0', '#9ec5f0', '#e0c074', '#8f7ff0', '#7fd7a0']
   };
   var pal = PALETTES[fx.burst] || PALETTES.gold;
@@ -93,10 +95,15 @@
     el.style.left = (5 + Math.random() * 88) + '%';
     el.style.setProperty('--dur', (8 + Math.random() * 7) + 's');
     el.style.setProperty('--sway', ((Math.random() < 0.5 ? -1 : 1) * (10 + Math.random() * 28)) + 'px');
-    el.addEventListener('click', function () { popBalloon(el, c); });
-    document.body.appendChild(el);
     var life = parseFloat(el.style.getPropertyValue('--dur')) * 1000;
-    setTimeout(function () { if (el.parentNode) popBalloon(el, c); }, life * 0.82);
+    if (!fx.noPop) {
+      el.addEventListener('click', function () { popBalloon(el, c); });
+      setTimeout(function () { if (el.parentNode) popBalloon(el, c); }, life * 0.82);
+    } else {
+      // baby shower: patlama yok — süzülüp kaybolur (cinsiyet sürpriz)
+      setTimeout(function () { if (el.parentNode) el.remove(); }, life + 300);
+    }
+    document.body.appendChild(el);
   }
   function popBalloon(el, c) {
     var r = el.getBoundingClientRect();
@@ -115,7 +122,7 @@
   var openBtn = document.getElementById('openBtn');
   var audio = document.getElementById('bgMusic');
   function fireOpenFx() {
-    burst(pal, fx.balloons ? 44 : 84, 45);
+    burst(pal, fx.balloons ? 46 : 84, 45);
     if (fx.balloons) balloonShower(pal, 16);
   }
   if (openBtn) {
@@ -132,6 +139,92 @@
   if (fx.balloons && !reduce) {
     for (var k = 0; k < 4; k++) (function (d) { setTimeout(function () { spawnBalloon(pal); }, d * 900); })(k);
     setInterval(function () { if (!document.hidden) spawnBalloon(pal); }, 4200);
+  }
+
+  // ---------- DETAY CAROUSEL (3D yelpaze) ----------
+  [].slice.call(document.querySelectorAll('[data-carousel]')).forEach(function (root) {
+    var cards = [].slice.call(root.querySelectorAll('.dcard'));
+    var dotsWrap = root.querySelector('.ddots');
+    var n = cards.length, curi = 0;
+    if (dotsWrap) {
+      cards.forEach(function (_, i) {
+        var d = document.createElement('div'); d.className = 'ddot';
+        d.addEventListener('click', function () { curi = i; render(); });
+        dotsWrap.appendChild(d);
+      });
+    }
+    var dots = dotsWrap ? [].slice.call(dotsWrap.children) : [];
+    function render() {
+      cards.forEach(function (c, i) {
+        var off = i - curi, a = Math.abs(off);
+        if (a > 2) {
+          c.style.opacity = 0; c.style.zIndex = 0; c.style.pointerEvents = 'none';
+          c.style.transform = 'translateX(' + (off < 0 ? -260 : 260) + 'px) scale(.6)';
+        } else {
+          c.style.opacity = 1 - a * 0.26; c.style.zIndex = 5 - a; c.style.pointerEvents = '';
+          c.style.transform = 'translateX(' + (off * 118) + 'px) rotateY(' + (-off * 22) + 'deg) scale(' + (1 - a * 0.12) + ')';
+        }
+      });
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === curi); });
+    }
+    var sx = null, moved = false;
+    root.addEventListener('pointerdown', function (e) { sx = e.clientX; moved = false; });
+    root.addEventListener('pointermove', function (e) { if (sx !== null && Math.abs(e.clientX - sx) > 8) moved = true; });
+    window.addEventListener('pointerup', function (e) {
+      if (sx === null) return;
+      var dx = e.clientX - sx; sx = null;
+      if (dx > 45 && curi > 0) curi--;
+      else if (dx < -45 && curi < n - 1) curi++;
+      render();
+    });
+    cards.forEach(function (c, i) { c.addEventListener('click', function () { if (!moved && i !== curi) { curi = i; render(); } }); });
+    render();
+  });
+
+  // ---------- CİNSİYET TAHMİNİ ----------
+  (function () {
+    var wrap = document.getElementById('guess');
+    if (!wrap) return;
+    var counts = { kiz: Number(wrap.getAttribute('data-kiz') || 0), erkek: Number(wrap.getAttribute('data-erkek') || 0) };
+    var picked = null;
+    function upd() {
+      var tot = (counts.kiz + counts.erkek) || 1;
+      wrap.querySelector('.gb-pink').style.width = (counts.kiz / tot * 100) + '%';
+      wrap.querySelector('.gb-blue').style.width = (counts.erkek / tot * 100) + '%';
+      wrap.querySelector('[data-g=kiz] b').textContent = counts.kiz;
+      wrap.querySelector('[data-g=erkek] b').textContent = counts.erkek;
+    }
+    [].slice.call(wrap.querySelectorAll('.guess-btn')).forEach(function (b) {
+      b.addEventListener('click', function () {
+        var g = b.getAttribute('data-g');
+        if (picked === g) return;
+        if (picked) { counts[picked]--; wrap.querySelector('[data-g=' + picked + ']').classList.remove('sel'); }
+        counts[g]++; picked = g; b.classList.add('sel'); upd();
+        // tahmin rengi = tahmin edenin seçimi (bebeğin cinsiyetini AÇIKLAMAZ)
+        burst(g === 'kiz' ? ['#f6a5c0', '#ffd1e3', '#ffffff'] : ['#9ec5f0', '#cfe6ff', '#ffffff'], 24, 52);
+      });
+    });
+    upd();
+  })();
+
+  // ---------- TAKVİME EKLE + PAYLAŞ ----------
+  var calBtn = document.getElementById('calBtn');
+  if (calBtn) {
+    calBtn.addEventListener('click', function () {
+      var s = calBtn.getAttribute('data-start'), e = calBtn.getAttribute('data-end');
+      var t = calBtn.getAttribute('data-title') || document.title;
+      var loc = calBtn.getAttribute('data-loc') || '';
+      var url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(t) +
+        '&dates=' + s + '/' + e + '&location=' + encodeURIComponent(loc) + '&details=' + encodeURIComponent('davetimhazir.xyz');
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+  var shareBtn = document.getElementById('shareBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function () {
+      if (navigator.share) { navigator.share({ title: document.title, url: location.href }).catch(function () {}); }
+      else if (navigator.clipboard) { navigator.clipboard.writeText(location.href); var o = shareBtn.innerHTML; shareBtn.innerHTML = '✓ Kopyalandı'; setTimeout(function () { shareBtn.innerHTML = o; }, 1800); }
+    });
   }
 
   // ---------- music toggle ----------
@@ -154,7 +247,7 @@
     var target = iso ? new Date(iso) : new Date(Date.now() + 86400000 * 77);
     var elD = cd.querySelector('[data-d]'), elH = cd.querySelector('[data-h]'),
         elM = cd.querySelector('[data-m]'), elS = cd.querySelector('[data-s]');
-    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var pad = function (x) { return (x < 10 ? '0' : '') + x; };
     var tick = function () {
       var diff = Math.max(0, target - new Date());
       elD.textContent = Math.floor(diff / 86400000);
