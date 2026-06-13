@@ -434,3 +434,14 @@ a { color: inherit; text-decoration: none; }
 .guess-bar .gb-pink { background: linear-gradient(90deg,#f6a5c0,#e58aa8); }
 .guess-bar .gb-blue { background: linear-gradient(90deg,#9ec5f0,#7aa9d6); }
 .guess-note { text-align: center; font-size: 12.5px; opacity: .7; margin-top: 12px; }
+
+/* Mevlüt — yeşil & altın & krem (dini zarafet, abartısız) */
+.theme-mevlut {
+  --bg: #0c1f17; --fg: #f0ead9; --accent: #d8b46a; --accent2: #7bbf9e;
+  --card: rgba(216,180,106,.06); --line: rgba(216,180,106,.26);
+  --gold-grad: linear-gradient(135deg,#f7e7b0,#e3c372 40%,#b88a3c 65%,#f1dca0);
+  --velvet: #123227;
+}
+.theme-mevlut .cover { background: radial-gradient(135% 85% at 50% 8%, #143a2a, #0a1812 72%); }
+.theme-mevlut .cover .names { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.theme-mevlut .event .ico, .theme-mevlut .countdown .box small { color: var(--accent2); }

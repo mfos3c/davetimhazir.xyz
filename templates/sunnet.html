@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eymen'in Sünnet Düğünü Davetiyesi</title>
-<meta name="description" content="Eymen'in sünnet düğününe davetlisiniz — 22 Ağustos 2026.">
+<meta name="description" content="Eymen'in sünnet düğününe davetlisiniz — 22 Ağustos 2026, İzmir.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,30 +18,30 @@
 
   <!-- COVER -->
   <section class="cover" id="cover">
-    <div class="eyebrow">Maşallah, Büyüdüm!</div>
-    <h1 class="names">Eymen<span class="amp">Sünnet Düğünü</span></h1>
+    <div class="eyebrow">Maşallah, Büyüdüm</div>
+    <h1 class="names">Eymen<span class="amp">sünnet düğünü</span></h1>
     <div class="rule"></div>
     <div class="date">22 Ağustos 2026 · İzmir</div>
     <button class="open-btn" id="openBtn">Davetiyeyi Aç</button>
     <div class="music-hint">♪ Müzikle açılır</div>
   </section>
 
-  <!-- music + nav -->
+  <!-- music -->
   <button class="music-toggle" id="musicToggle" aria-label="Müzik">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
   </button>
   <audio id="bgMusic" loop preload="none"><!-- Cursor: src buraya (Supabase storage) --></audio>
 
-  <!-- COUPLE + COUNTDOWN -->
+  <!-- KAHRAMAN + COUNTDOWN -->
   <section class="sec" data-sec="cift">
     <div class="couple reveal-i">
       <div class="person">
-        <div class="photo">E</div>
+        <div class="photo">👑</div>
         <h3>Eymen Kaya</h3>
-        <p>Sünnet düğününün kahramanı</p>
+        <p>Günün küçük prensi</p>
       </div>
       <div class="person">
-        <div class="photo">👑</div>
+        <div class="photo">🤍</div>
         <h3>Aslı &amp; Burak Kaya</h3>
         <p>Gururlu anne &amp; baba</p>
       </div>
@@ -57,35 +57,34 @@
     </div>
   </section>
 
-  <!-- EVENTS (merasim) -->
+  <!-- DETAYLAR — 3D carousel -->
   <section class="sec" data-sec="merasim">
-    <div class="label reveal-i">Düğün Detayları</div>
-    <div class="sub reveal-i">Küçük prensimizin büyük gününe bekliyoruz</div>
-
-    <div class="event reveal-i">
-      <div class="ico">🎉</div>
-      <h3>KARŞILAMA &amp; KOKTEYL</h3>
-      <div class="when">19:00</div>
-      <div class="day">22 Ağustos 2026 · Cumartesi</div>
-      <div class="place">Ege Sahil Davet Salonu</div>
-      <div class="addr">Karşıyaka Sahil, İzmir</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Karşıyaka+İzmir" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        Konum
-      </a>
+    <div class="label reveal-i">Detaylar</div>
+    <div class="sub reveal-i">kartları kaydır</div>
+    <div class="dcarousel reveal-i" data-carousel>
+      <div class="dtrack">
+        <div class="dcard" style="--cbg:linear-gradient(160deg,#2a4a86,#0e1f42)">
+          <div class="dnum">01</div><div class="dwm">👑</div>
+          <div class="dcontent"><div class="dico">⭐</div><h3>Kahramanımız</h3><p>Eymen Kaya<br><span class="dsmall">tacını takıp sizi bekliyor</span></p></div>
+        </div>
+        <div class="dcard" style="--cbg:linear-gradient(160deg,#3a5a96,#16306a)">
+          <div class="dnum">02</div><div class="dwm">⏰</div>
+          <div class="dcontent"><div class="dico">📅</div><h3>Tarih &amp; Saat</h3><p>22 Ağustos 2026 · Cumartesi<br><span class="dsmall">Karşılama 19:00 · Tören 20:30</span></p></div>
+        </div>
+        <div class="dcard" style="--cbg:linear-gradient(160deg,#46689e,#1c3666)">
+          <div class="dnum">03</div><div class="dwm">📍</div>
+          <div class="dcontent"><div class="dico">🌊</div><h3>Mekan</h3><p>Ege Sahil Davet Salonu<br><span class="dsmall">Karşıyaka Sahil, İzmir</span></p></div>
+        </div>
+        <div class="dcard" style="--cbg:linear-gradient(160deg,#d8b46a,#8a6d2c)">
+          <div class="dnum">04</div><div class="dwm">🎉</div>
+          <div class="dcontent"><div class="dico">🎁</div><h3>Program</h3><p>Karşılama &amp; kokteyl, tören, kep giyme<br><span class="dsmall">çocuk eğlencesi &amp; ikram</span></p></div>
+        </div>
+      </div>
+      <div class="ddots"></div>
     </div>
-
-    <div class="event reveal-i">
-      <div class="ico">👑</div>
-      <h3>TÖREN &amp; KEP GİYME</h3>
-      <div class="when">20:30</div>
-      <div class="day">22 Ağustos 2026 · Cumartesi</div>
-      <div class="place">Ege Sahil Davet Salonu</div>
-      <div class="addr">Karşıyaka Sahil, İzmir</div>
-      <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Karşıyaka+İzmir" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        Konum
-      </a>
+    <div class="actions reveal-i">
+      <span class="chip" id="calBtn" data-start="20260822T160000Z" data-end="20260822T210000Z" data-title="Eymen'in Sünnet Düğünü" data-loc="Karşıyaka Sahil İzmir">📅 Takvime Ekle</span>
+      <span class="chip" id="shareBtn">↗ Paylaş</span>
     </div>
   </section>
 
@@ -130,7 +129,7 @@
   <!-- GUESTBOOK -->
   <section class="sec" data-sec="ani">
     <div class="label reveal-i">Dijital Anı Defteri</div>
-    <div class="sub reveal-i">Bir dileğinizi bizimle paylaşın</div>
+    <div class="sub reveal-i">Eymen'e bir dileğinizi bırakın</div>
     <div class="card-form reveal-i">
       <form id="guestForm">
         <div class="field">
@@ -145,16 +144,16 @@
       </form>
       <div class="guest-list" id="guestList">
         <div class="guest reveal-i"><div class="g-name">Ayşe Teyze</div><div class="g-msg">Maşallah olsun Eymen'im, koçum benim 👑</div></div>
-        <div class="guest reveal-i"><div class="g-name">Mehmet & Fatma</div><div class="g-msg">Hayırlı olsun, koçumuz çabuk iyileşsin!</div></div>
+        <div class="guest reveal-i"><div class="g-name">Mehmet &amp; Fatma</div><div class="g-msg">Hayırlı olsun, koçumuz çabuk iyileşsin!</div></div>
       </div>
     </div>
   </section>
 
   <!-- STORY -->
   <section class="sec story" data-sec="hikaye">
-    <div class="sub reveal-i">Eymen'in Hikayesi</div>
+    <div class="sub reveal-i">Eymen'in Sözü</div>
     <div class="reveal-i">
-      <p>"Bugün küçük bir adım, büyük bir gelenek… Tacımı takıp at üstüne biniyorum. Maşallah desinler, çabuk geçsin diye dua etsinler."</p>
+      <p>"Bugün küçük bir adım, büyük bir gelenek… Tacımı takıp prens oluyorum. Maşallah desinler, çabuk geçsin diye dua etsinler."</p>
       <div class="sign">— Eymen</div>
     </div>
   </section>
@@ -167,9 +166,9 @@
 
   <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
-    <a href="#cift" class="active" aria-label="Çift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></a>
+    <a href="#cift" class="active" aria-label="Prens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></a>
+    <a href="#merasim" aria-label="Detaylar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></a>
     <a href="#ani" aria-label="Dilekler"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></a>
-    <a href="#merasim" aria-label="Tarih"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></a>
     <a href="#katilim" aria-label="Katılım"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H5.2L4 17.5z"/></svg></a>
   </nav>
 

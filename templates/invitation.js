@@ -122,7 +122,7 @@
   var openBtn = document.getElementById('openBtn');
   var audio = document.getElementById('bgMusic');
   function fireOpenFx() {
-    burst(pal, fx.balloons ? 46 : 84, 45);
+    burst(pal, theme === 'mevlut' ? 24 : (fx.balloons ? 46 : 84), 45);
     if (fx.balloons) balloonShower(pal, 16);
   }
   if (openBtn) {
