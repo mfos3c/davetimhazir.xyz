@@ -215,7 +215,7 @@
       var t = calBtn.getAttribute('data-title') || document.title;
       var loc = calBtn.getAttribute('data-loc') || '';
       var url = 'https://www.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(t) +
-        '&dates=' + s + '/' + e + '&location=' + encodeURIComponent(loc) + '&details=' + encodeURIComponent('davetimhazir.xyz');
+        '&dates=' + s + '/' + e + '&location=' + encodeURIComponent(loc) + '&details=' + encodeURIComponent('davetimhazir.com');
       window.open(url, '_blank', 'noopener');
     });
   }
