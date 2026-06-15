@@ -9,5 +9,5 @@
   <text x="100" y="230" font-family="'Jost', -apple-system, sans-serif" font-size="20" letter-spacing="8" fill="#9caf91">BABY SHOWER</text>
   <text x="100" y="340" font-family="'Cormorant Garamond', Georgia, serif" font-size="92" font-weight="600" fill="#4f4439">Bir Mucize Yolda</text>
   <text x="100" y="400" font-family="'Cormorant Garamond', Georgia, serif" font-size="30" font-style="italic" fill="#4f4439" opacity="0.78">Sevgiyle dolu bir öğleden sonrasına bekleriz.</text>
-  <text x="100" y="560" font-family="'Jost', -apple-system, sans-serif" font-size="22" fill="#9caf91" letter-spacing="2">davetim<tspan font-weight="600" fill="#9caf91">hazır</tspan><tspan fill="#9caf91">.xyz</tspan></text>
+  <text x="100" y="560" font-family="'Jost', -apple-system, sans-serif" font-size="22" fill="#9caf91" letter-spacing="2">davetim<tspan font-weight="600" fill="#9caf91">hazır</tspan><tspan fill="#9caf91">.com</tspan></text>
 </svg>

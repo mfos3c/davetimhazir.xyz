@@ -1,4 +1,4 @@
-# davetim hazır — davetimhazir.xyz
+# davetim hazır — davetimhazir.com
 
 Dijital davetiye işi. Bu repo **frontend** kısmıdır: dikkat çeken pazarlama sayfası + canlı çalışan davetiye şablonları. Backend (Supabase, n8n, Telegram, ödeme) **Cursor** ile kurulacak — bkz. [`CURSOR_PROMPT.md`](CURSOR_PROMPT.md).
 
@@ -34,5 +34,5 @@ python3 -m http.server 8000
 ## Sonraki adım
 `CURSOR_PROMPT.md` içindeki PROMPT bloğunu Cursor'a yapıştır → veri-odaklı, ödemeli, otomatik ürüne dönüşür.
 ```
-davetimhazir.xyz/[slug]  → her çift için kişiye özel davetiye (Supabase verisinden)
+davetimhazir.com/[slug]  → her çift için kişiye özel davetiye (Supabase verisinden)
 ```

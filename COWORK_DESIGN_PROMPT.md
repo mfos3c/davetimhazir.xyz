@@ -1,4 +1,4 @@
-# Cowork — Claude Design Prompt (davetimhazir.xyz)
+# Cowork — Claude Design Prompt (davetimhazir.com)
 
 > Aşağıdaki **PROMPT** bloğunu olduğu gibi kopyalayıp Claude'a (Cowork modu) ver.
 > Amaç: mevcut frontend'i sanatsal olarak üst seviyeye taşımak + marka kimliği + daha fazla davetiye teması + sosyal medya görselleri üretmek. Backend Cursor'da yapılıyor (bkz. `CURSOR_PROMPT.md`) — bu prompt **sadece tasarım/görsel** odaklıdır.
@@ -7,7 +7,7 @@
 
 ## PROMPT (Claude Cowork'e yapıştır) ⬇️
 
-Sen kıdemli bir marka & web tasarımcısısın. **davetimhazir.xyz** adlı dijital davetiye işi için görsel kimliği ve frontend'i Awwwards/Dribbble seviyesine taşıyacaksın. Ürün: çiftlerin düğün/nişan/kına/söz davetiyelerini dakikalar içinde kişiye özel dijital davetiyeye çeviren bir servis. Hedef: **ilk saniyede dikkat çeken, "vay" dedirten, mobilde kusursuz** bir deneyim.
+Sen kıdemli bir marka & web tasarımcısısın. **davetimhazir.com** adlı dijital davetiye işi için görsel kimliği ve frontend'i Awwwards/Dribbble seviyesine taşıyacaksın. Ürün: çiftlerin düğün/nişan/kına/söz davetiyelerini dakikalar içinde kişiye özel dijital davetiyeye çeviren bir servis. Hedef: **ilk saniyede dikkat çeken, "vay" dedirten, mobilde kusursuz** bir deneyim.
 
 ### Bağlam
 - Bu projede zaten statik bir frontend var: `index.html` (landing), `css/style.css`, `js/main.js`, `templates/` (3 davetiye teması + galeri), `templates/invitation.css`, `templates/invitation.js`. Palet: ivory + altın; fontlar: Cormorant Garamond + Jost.
